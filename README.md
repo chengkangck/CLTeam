@@ -76,6 +76,48 @@ For the Na¨ıve Bayes Model, we deleted other languages except English and Span
 
 ![image](https://github.com/chengkangck/CLTeam/blob/master/images/Figure%203The%20accuracy%20of%20Training%20Data%20and%20Test.PNG)
 
+### 5.2	Results and Analysis
+We first analysed the accuracy of emotion predic- tion of Multi-Class Perceptron with the Bag of Words Model in detail. Then we focused on com- paring the accuracy of the Perceptron with two dif- ferent features sets. We also compared the results of the two classifiers: Multi-Class Perceptron and Na¨ıve Bayes.
+
+#### 5.2.1	Multi-Class Perceptron with Bag of Words
+
+For the Multi-Class Perceptron Classification with Bag of Words features, we set the maximum num- ber of iterations to 50, (due to experience), with the exception that the difference in the improve- ment of accuracy of the current iteration and previ- ous iteration was less than 0.0001 in order to make sure that the training results become stable. In this case, the model was forced to stop training. We found that our system stopped running at the 26th iteration. The results are shown in Figure 3.
+
+We can see that the accuracy of the training  set has an increasing trend that approaches 84%. However, the accuracy of test data stays fairly level at around 63 64%. After the 18th iteration, the training set accuracy becomes more steady as the iterations continue. Also, at the 18th iteration, the accuracy of the test set is higher than at al- most all other iterations, at approximately 64.72%. We decided to use the 18th iteration for the Multi- Class Perceptron with the Bag of Words features.
+
+We also analysed the results for each emotion in the test data, as shown in Table 1. The emo- tion class “happy” got the highest precision, re- call and F1 score because it was represented in more than 50% of the whole training data set, and thus had plentiful training data. With the excep- tion of “love” tweets, the F-score can be predicted approximately by considering the size of the rep- resentation of the emotion class in the training set.
+
+#### 5.2.2	Perceptron Compared with Two Different Features
+
+We also tried another feature type: Word Embed- ding which can easily describe the relationships between words. We compared the results of the Bag of Words feature extraction method and the Word Embedding feature extraction method for the same training model. The results are shown  in Figure 4. We can see that the accuracy of Word Embedding is lower by approximately 20% than that of the Bag of Words features in both the train- ing set and the test set. We suggest that this is be- cause when we calculated the average values of the Word Embeddings to make sentence vectors, we lost a large amount of useful information, and also because there were a lot of low frequency words in the underrepresented languages.
+
+#### 5.2.3	Error Analysis of Multi-Class Perceptron
+We can see that in Figure 3 the accuracy of the test set data was consistently around the 63% 64% mark, although the accuracy of training set was increasing. There were two main problems here: firstly, the training accuracy was more than 80% but the test accuracy was still about 63%, which suggests the presence of overfitting but we do not expect it to be serious, having only a limited im- pact on the classifier. Secondly, the original train- ing data was biased towards the “happy” emo- tion class, which hindered the model’s learning of other emotion classes in advance of being pre- sented with the test set data. Hence, although the accuracy of the test set data became a little more stable in the later iterations, as shown in Figure 3, the influence of model was still very small.
+![image](https://github.com/chengkangck/CLTeam/blob/master/images/Figure%204The%20compared%20results%20of%20Bag%20of%20Words.PNG)
+![image](https://github.com/chengkangck/CLTeam/blob/master/images/Figure%205Impact%20on%20the%20accuracy%20of%20models%20by.PNG)
+
+#### 5.2.4	Results of Na¨ıve Bayes Model
+We first did an experiment for parameter selec- tion for the important parameter min df men- tioned in  Section  5.1.  We  made  sure  that  all of the other parameters were the same. We used the Bernoulli Na¨ıve Bayes Model, the hyper- parameter of Laplace smoothing was 1 and we used a bigram model of TF-IDF features. We changed the min df parameter from 1 to 4 to see its impact on the results shown in Figure 5. We can clearly see that the accuracy of emotion prediction increase when the min df parameter is changed from 1 to 4.
+
+We tested Multinomial Na¨ıve Bayes and Bernoulli Na¨ıve Bayes models. We also tried uni- gram and bigram models of TF-IDF features. The results are shown in Table 2. We set the parame- ter min df to 4 and the hyper-parameter of Laplace smoothing set at 1. In the same parameter set, we compared these two kinds of Na¨ıve Bayes Models in the unigram and bigram condition. We can find that the accuracy of Multinomial Na¨ıve Bayes is lower than that of Bernoulli Na¨ıve Bayes for un- igram and bigram in both training and test data sets, because in the short text processing, we con- sidered the occurrence of word occurrence. Ex- cept for the accuracy of the test data set for the Bernoulli Na¨ıve Bayes Model, the bigram model results are better than those of unigram models in the same experimental conditions.
+
+![image](https://github.com/chengkangck/CLTeam/blob/master/images/Table%202The%20Accuracy%20of%20Training%20and%20Testing%20Set.PNG)
+
+
+As a result of these adjustments, we can see that the accuracy of Na¨ıve Bayes Model is about 67% which is better than the Multi-Class Perceptron Model with an accuracy of approximately 63% for the test set.
+
+## 6	Summary and Conclusion
+We have investigated some quite simple models. we also experimented with Bag of Words and Word Embedding these different features. Due to the adapted features that were implemented in the optimisation of the Na¨ıve Bayes Model, the mod- els are not directly comparable, however we can report that one model combination is better than the other.
+
+We implemented a variety of optimisation li- braries and feature extraction techniques for our own development. We also made some amend- ments with the processing time and efficiency of the systems. These implementations combined limit the extent to which we can directly compare our models, as a full pairwise like for like com- parison of each adjustment is beyond the scope of this project. The accuracy is just approximately 4% difference between the Perceptron model with all words and all languages, and the Na¨ıve Bayes Model with TF-IDF features and a mechanism  to remove the most low frequency features. The biggest problem is the training data skew which makes us not achieve higher accuracy.
+
+## 7	Future Work
+First for the data skew problem, we will try to split the sentences with label ’happy’ into about four or  
+five groups and put them into the sentences with other labels to do training. In this way, we can de- crease the influence of training data skew problem. Ideally, we would like to carry out more amend- ments to our models and test the various fea- ture extraction and optimisation techniques that we tested across both models. In addition, we would like explore more optimisation techniques to be able to see first hand to what extent the mod- els can be optimised, and their maximum poten-
+tials.
+
+As part of a bigger, more ambitious project, we would be interested to explore other machine learning techniques like SVM model or Neural Networks. We  would  potentially  like  to  make a mixed model, with each individual component weighted in its contribution to the overall system. We would be interested, in this case, to look at how we can maximise the strengths and minimise the weaknesses of each system component.
+
 
 ## WASSA 2018 Implicit Emotion Shared Task
 
