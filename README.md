@@ -1,5 +1,7 @@
 # NLP_teamlab_SS18
-WASSA 2018 Implicit Emotion Shared Task
+
+## WASSA 2018 Implicit Emotion Shared Task
+
 Introduction
 Emotion is a concept that is challenging to describe. Yet, as human beings, we understand the emotional effect situations have or could have on us and other people. How can we transfer this knowledge to machines? Is it possible to learn the link between situations and the emotions they trigger in an automatic way?
 
