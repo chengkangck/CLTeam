@@ -137,3 +137,19 @@ tials.
 
 As part of a bigger, more ambitious project, we would be interested to explore other machine learning techniques like SVM model or Neural Networks. We  would  potentially  like  to  make a mixed model, with each individual component weighted in its contribution to the overall system. We would be interested, in this case, to look at how we can maximise the strengths and minimise the weaknesses of each system component.
 
+## References
+Freund, V. and Schapire, R. 1999. Large Margin Clas- sification Using the Perceptron Algorithm. Machine Learning, 37 (3):277-296.
+
+Mikolov, T., Chen K., Corrado, G. and Dean, J. 2013. Efficient Estimation of Word Representation in Vec- tor Space. arXiv:1301.3781.
+
+Mikolov,  T.,  Sutskever,  I.,  Chen,  K.,  and   Cor- rado  G.S.    2013.     Distributed  Representations of Words and Phrases and their Compositionality. arXiv:1310.4546.
+
+Lebret R. and Collobert R. 2014. Word Emdeddings through Hellinger PCA. Conference of the Euro- pean Chapter of the Association for Computational Linguistics (EACL), arXiv:1312.5542.
+
+Globerson A. 2007. Euclidean Embedding of Co- occurrence Data. Journal of Machine learning re- search.
+
+Levy O. and Goldberg Y 2014. Linguistic Regular- ities in Sparse and Explicit Word Representations. CoNLL, pp. 171-180.
+
+Hasan M., Rundensteiner E. and Agu E 2014. Emo- tex: Detecting emotions in twitter messages.
+
+
